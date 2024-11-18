@@ -121,7 +121,8 @@ Los valores posibles para el parámetro "estado" en el archivo `data.json` son:
 ## Filtrar por número de huéspedes que incluye la reserva
 **Método**: GET  
 **Ruta**: `https://proyecto-4-reservas-hoteleras-tik8.onrender.com/api/reservas/cantidad`  
-Este método permite filtrar las reservas según el número de huéspedes que incluye cada una. En los parámetros de consulta (Query Parameters), se debe agregar el parámetro "num" con el valor correspondiente al número de huéspedes.
+Este método permite filtrar las reservas según el número de huéspedes que incluye cada una. El filtro devuelve las reservas que incluyan el número de huéspedes señalados o más, por ejemplo si el número es 3 devolverá las reservas con 3, o más huéspedes. 
+En los parámetros de consulta (Query Parameters), se debe agregar el parámetro "num" con el valor correspondiente al número de huéspedes.
 
 Los valores posibles para el parámetro "num" en el archivo `data.json` varían entre 1 y 4.
 

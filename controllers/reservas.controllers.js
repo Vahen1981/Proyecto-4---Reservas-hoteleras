@@ -2,6 +2,10 @@
 // características nuevas que pueden tener problemas de compatibilidad
 // import data from '../data.json' assert { type: "json" };
 // const reservas = data.reservas;
+// Las siguientes líneas no funcionarón en render.com, entiendo que son 
+// características nuevas que pueden tener problemas de compatibilidad
+// import data from '../data.json' assert { type: "json" };
+// const reservas = data.reservas;
 
 
 // Para no tener que cambiar el "type" del package.json y, a la vez,

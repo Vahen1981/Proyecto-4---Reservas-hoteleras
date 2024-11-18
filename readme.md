@@ -7,7 +7,7 @@ A continuación, se detallan las rutas disponibles para acceder a los datos.
 
 ## Listar todas las reservas:
 **Método**: GET  
-**Ruta**: `http://localhost:8000/api/reservas`
+**Ruta**: `http://localhost:8000/api/reservas`  
 Este método permite obtener un listado completo de todas las reservas almacenadas en el sistema. Los datos son extraídos del archivo data.json, que contiene la información de todas las reservas registradas.
 
 
@@ -31,7 +31,7 @@ Cada campo del JSON debe ser completado con los datos correspondientes a la rese
 ## Filtrar una reserva por su ID
 **Método**: GET  
 **Ruta**: `http://localhost:8000/api/reservas/id/`  
-Este método permite obtener los detalles de una reserva específica mediante su ID. Se debe agregar el número de ID al final de la ruta. En el archivo data.json, las reservas están identificadas con IDs del 1 al 10.
+Este método permite obtener los detalles de una reserva específica mediante su ID. Se debe agregar el número de ID al final de la ruta. En el archivo data.json, las reservas están identificadas con IDs del 1 al 10.  
 **Ejemplo**:  
 `http://localhost:8000/api/reservas/id/5`
 

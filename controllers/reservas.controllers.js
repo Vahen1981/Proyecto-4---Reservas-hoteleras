@@ -163,15 +163,19 @@ export const filtrarPorHotel = (req, res) => {
   }
 }
 
-export const filtrarPorFecha = (req, res) => {
-  const fecha = req.query.fecha;
-  const reserva = reservas.filter((fechaReserva) => fechaReserva["Fecha de entrada"] === fecha);
-  if (reserva.length > 0) {
-    res.json(reserva); 
-  } else {
-    res.status(404).json({ mensaje: 'No se encontraron reservas para esta fecha' }); 
-  }
+export const filtrarPorRangoFechas = (req, res) => {
+  const{"Fecha de entrada": fechaEntrada, "Fecha de salida": fechaSalida} = req.query
+  const fechaInicioFormateada = new Date(fechaEntrada);
+  const fechaTerminoFormateada = new Date(fechaSalida);
+
+  const reservasFiltradas = reservas.filter(reservas => {
+      const inicioReserva = new Date(reservas["Fecha de entrada"]);
+      const finReserva = new Date(reservas["Fecha de salida"]);
+      return inicioReserva >= fechaInicioFormateada && finReserva <= fechaTerminoFormateada; 
+  })
+  res.json(reservasFiltradas);
 }
+
 
 export const filtrarPorHabitacion = (req, res) => {
   const habitacion = req.query.habitacion;

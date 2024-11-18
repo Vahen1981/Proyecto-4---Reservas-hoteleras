@@ -9,7 +9,7 @@ router.get('/reservas/id/:id', reservasController.filtrarPorId);
 router.put('/reservas/id/:id', reservasController.actualizarPorId);
 router.delete('/reservas/id/:id', reservasController.eliminarReserva);
 router.get('/reservas/hotel', reservasController.filtrarPorHotel);
-router.get('/reservas/fecha', reservasController.filtrarPorFecha);
+router.get('/reservas/fecha', reservasController.filtrarPorRangoFechas);
 router.get('/reservas/habitacion', reservasController.filtrarPorHabitacion);
 router.get('/reservas/estado', reservasController.filtrarPorEstado);
 router.get('/reservas/cantidad', reservasController.filtrarPorCantidadPasajeros);

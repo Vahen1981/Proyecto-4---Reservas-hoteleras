@@ -1,28 +1,28 @@
 // Las siguientes líneas no funcionarón en render.com, entiendo que son 
 // características nuevas que pueden tener problemas de compatibilidad
-// import data from '../data.json' assert { type: "json" };
-// const reservas = data.reservas;
-// Las siguientes líneas no funcionarón en render.com, entiendo que son 
-// características nuevas que pueden tener problemas de compatibilidad
+// las he dejado comentadas
+//
 // import data from '../data.json' assert { type: "json" };
 // const reservas = data.reservas;
 
 
 // Para no tener que cambiar el "type" del package.json y, a la vez,
-// continuar utilizando un archivo .json con los datos de las reservas
+// continuar utilizando un archivo .json aparte con los datos de las reservas
 // he utilizado el método de importación utilizando fs y path
 import fs from 'fs';
 import path from 'path';
 const filePath = path.resolve('./data.json');
+let reservas;
 fs.readFile(filePath, 'utf-8', (err, data) => {
   if (err) {
     console.error('Error al leer el archivo JSON:', err);
     return;
   }
   
-  const reservas = JSON.parse(data).reservas;
-  console.log(reservas);
+  reservas = JSON.parse(data).reservas;
 });
+
+
 
 export const listaReservas = (req, res) => {
     res.json(reservas);

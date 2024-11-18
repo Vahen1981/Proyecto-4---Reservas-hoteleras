@@ -1,29 +1,34 @@
 import data from '../data.json' assert { type: "json" };
 const reservas = data.reservas;
 
+
+
 export const listaReservas = (req, res) => {
     res.json(reservas);
 };
 
 
+
 export const crearReserva = (req, res) => {
-  const nuevoId = reservas[reservas.length - 1].Id + 1;
+  const nuevoId = reservas[reservas.length - 1].id + 1;
   const nuevaReserva = {
-    "Id": nuevoId,
-    "Hotel": req.body.hotel,
-    "Fecha de entrada": req.body.entrada,
-    "Fecha de salida": req.body.salida,
-    "Tipo de Habitación": req.body.habitacion,
-    "Estado": req.body.estado,
-    "Cantidad de Huéspedes": req.body.numeroHuespedes,
+    "id": nuevoId,
+    "hotel": req.body.hotel,
+    "fechaEntrada": req.body.entrada,
+    "fechaSalida": req.body.salida,
+    "habitacion": req.body.habitacion,
+    "estado": req.body.estado,
+    "numeroHuespedes": req.body.numeroHuespedes,
   };
   reservas.push(nuevaReserva);
   res.status(201).json({ mensaje: 'Reserva creada', data: nuevaReserva });
 };
 
+
+
 export const filtrarPorId = (req, res) => {
   const id = parseInt(req.params.id);
-  const reserva = reservas.find((idReserva) => idReserva.Id === id);
+  const reserva = reservas.find((idReserva) => idReserva.id === id);
 
   if (reserva !== undefined) {
     res.json(reserva);
@@ -32,19 +37,21 @@ export const filtrarPorId = (req, res) => {
   }
 };
 
+
+
 export const actualizarPorId = (req, res) => {
   const id = parseInt(req.params.id);
   const reservaActualizada = {
-    "Id": id,
-    "Hotel": req.body.hotel,
-    "Fecha de entrada": req.body.entrada,
-    "Fecha de salida": req.body.salida,
-    "Tipo de Habitación": req.body.habitacion,
-    "Estado": req.body.estado,
-    "Cantidad de Huéspedes": req.body.numeroHuespedes,
+    "id": id,
+    "hotel": req.body.hotel,
+    "fechaEntrada": req.body.entrada,
+    "fechaSalida": req.body.salida,
+    "habitacion": req.body.habitacion,
+    "estado": req.body.estado,
+    "numeroHuespedes": req.body.numeroHuespedes,
   };
   for (let i = 0 ; i < reservas.length ; i++){
-    if (reservas[i].Id === id){
+    if (reservas[i].id === id){
       reservas[i] = reservaActualizada;
       return res.status(200).json({ mensaje: 'Reserva actualizada', data: reservaActualizada });
     }
@@ -52,10 +59,12 @@ export const actualizarPorId = (req, res) => {
   res.status(404).json({ mensaje: 'Reserva no encontrada' }); 
 }
 
+
+
 export const eliminarReserva = (req, res) => {
   const id = parseInt(req.params.id);
   for (let i = 0 ; i < reservas.length ; i++){
-    if (reservas[i].Id === id){
+    if (reservas[i].id === id){
       reservas.splice(i, 1);
       return res.status(200).json({ mensaje: 'Reserva eliminada' });
     }
@@ -63,9 +72,11 @@ export const eliminarReserva = (req, res) => {
   res.status(404).json({ mensaje: 'Reserva no encontrada' }); 
 }
 
+
+
 export const filtrarPorHotel = (req, res) => {
-  const hotel = req.query.hotel;
-  const reserva = reservas.filter((reservaHotel) => reservaHotel.Hotel === hotel);
+  const hotel = req.query.hotel.toLowerCase();
+  const reserva = reservas.filter((reservaHotel) => reservaHotel.hotel.toLowerCase() === hotel);
   if (reserva.length > 0) {
     res.json(reserva); 
   } else {
@@ -73,14 +84,16 @@ export const filtrarPorHotel = (req, res) => {
   }
 }
 
+
+
 export const filtrarPorRangoFechas = (req, res) => {
-  const{"Fecha de entrada": fechaEntrada, "Fecha de salida": fechaSalida} = req.query
+  const{fechaEntrada, fechaSalida} = req.query
   const fechaInicioFormateada = new Date(fechaEntrada);
   const fechaTerminoFormateada = new Date(fechaSalida);
 
   const reservasFiltradas = reservas.filter(reservas => {
-      const inicioReserva = new Date(reservas["Fecha de entrada"]);
-      const finReserva = new Date(reservas["Fecha de salida"]);
+      const inicioReserva = new Date(reservas.fechaEntrada);
+      const finReserva = new Date(reservas.fechaSalida);
       return inicioReserva >= fechaInicioFormateada && finReserva <= fechaTerminoFormateada; 
   })
   res.json(reservasFiltradas);
@@ -88,8 +101,8 @@ export const filtrarPorRangoFechas = (req, res) => {
 
 
 export const filtrarPorHabitacion = (req, res) => {
-  const habitacion = req.query.habitacion;
-  const reserva = reservas.filter((habitacionReserva) => habitacionReserva["Tipo de Habitación"] === habitacion);
+  const habitacion = req.query.habitacion.toLowerCase();
+  const reserva = reservas.filter((habitacionReserva) => habitacionReserva.habitacion.toLowerCase() === habitacion);
   if (reserva.length > 0) {
     res.json(reserva); 
   } else {
@@ -98,8 +111,8 @@ export const filtrarPorHabitacion = (req, res) => {
 }
 
 export const filtrarPorEstado = (req, res) => {
-  const estado = req.query.estado;
-  const reserva = reservas.filter((estadoReserva) => estadoReserva["Estado"] === estado);
+  const estado = req.query.estado.toLowerCase();
+  const reserva = reservas.filter((estadoReserva) => estadoReserva.estado.toLowerCase() === estado);
   if (reserva.length > 0) {
     res.json(reserva); 
   } else {
@@ -109,7 +122,7 @@ export const filtrarPorEstado = (req, res) => {
 
 export const filtrarPorCantidadPasajeros = (req, res) => {
   const numHuespedes = req.query.num;
-  const reserva = reservas.filter((numH) => numH["Cantidad de Huéspedes"] >= numHuespedes);
+  const reserva = reservas.filter((numH) => numH.numeroHuespedes >= numHuespedes);
   if (reserva.length > 0) {
     res.json(reserva); 
   } else {

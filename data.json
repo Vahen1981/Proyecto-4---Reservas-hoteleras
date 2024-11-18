@@ -1,94 +1,94 @@
 {
     "reservas": [
     {
-      "Id": 1,
-      "Hotel": "Hotel Paradise",
-      "Fecha de entrada": "2024-11-01",
-      "Fecha de salida": "2024-11-07",
-      "Tipo de Habitación": "Suite",
-      "Estado": "Pagado",
-      "Cantidad de Huéspedes": 2
+      "id": 1,
+      "hotel": "Hotel Paradise",
+      "fechaEntrada": "2024-11-01",
+      "fechaSalida": "2024-11-07",
+      "habitacion": "Suite",
+      "estado": "Pagado",
+      "numeroHuespedes": 2
     },
     {
-      "Id": 2,
-      "Hotel": "Ocean Breeze",
-      "Fecha de entrada": "2024-11-05",
-      "Fecha de salida": "2024-11-10",
-      "Tipo de Habitación": "Doble",
-      "Estado": "No pagado",
-      "Cantidad de Huéspedes": 3
+      "id": 2,
+      "hotel": "Ocean Breeze",
+      "fechaEntrada": "2024-11-05",
+      "fechaSalida": "2024-11-10",
+      "habitacion": "Doble",
+      "estado": "No pagado",
+      "numeroHuespedes": 3
     },
     {
-      "Id": 3,
-      "Hotel": "Mountain Retreat",
-      "Fecha de entrada": "2024-11-03",
-      "Fecha de salida": "2024-11-06",
-      "Tipo de Habitación": "Individual",
-      "Estado": "Pagado",
-      "Cantidad de Huéspedes": 1
+      "id": 3,
+      "hotel": "Mountain Retreat",
+      "fechaEntrada": "2024-11-03",
+      "fechaSalida": "2024-11-06",
+      "habitacion": "Individual",
+      "estado": "Pagado",
+      "numeroHuespedes": 1
     },
     {
-      "Id": 4,
-      "Hotel": "Hotel Paradise",
-      "Fecha de entrada": "2024-11-10",
-      "Fecha de salida": "2024-11-15",
-      "Tipo de Habitación": "Suite",
-      "Estado": "No pagado",
-      "Cantidad de Huéspedes": 2
+      "id": 4,
+      "hotel": "Hotel Paradise",
+      "fechaEntrada": "2024-11-10",
+      "fechaSalida": "2024-11-15",
+      "habitacion": "Suite",
+      "estado": "No pagado",
+      "numeroHuespedes": 2
     },
     {
-      "Id": 5,
-      "Hotel": "Ocean Breeze",
-      "Fecha de entrada": "2024-11-12",
-      "Fecha de salida": "2024-11-18",
-      "Tipo de Habitación": "Doble",
-      "Estado": "Pagado",
-      "Cantidad de Huéspedes": 4
+      "id": 5,
+      "hotel": "Ocean Breeze",
+      "fechaEntrada": "2024-11-12",
+      "fechaSalida": "2024-11-18",
+      "habitacion": "Doble",
+      "estado": "Pagado",
+      "numeroHuespedes": 4
     },
     {
-      "Id": 6,
-      "Hotel": "Mountain Retreat",
-      "Fecha de entrada": "2024-11-15",
-      "Fecha de salida": "2024-11-20",
-      "Tipo de Habitación": "Triple",
-      "Estado": "Pagado",
-      "Cantidad de Huéspedes": 3
+      "id": 6,
+      "hotel": "Mountain Retreat",
+      "fechaEntrada": "2024-11-15",
+      "fechaSalida": "2024-11-20",
+      "habitacion": "Triple",
+      "estado": "Pagado",
+      "numeroHuespedes": 3
     },
     {
-      "Id": 7,
-      "Hotel": "Ocean Breeze",
-      "Fecha de entrada": "2024-11-01",
-      "Fecha de salida": "2024-11-07",
-      "Tipo de Habitación": "Individual",
-      "Estado": "No pagado",
-      "Cantidad de Huéspedes": 1
+      "id": 7,
+      "hotel": "Ocean Breeze",
+      "fechaEntrada": "2024-11-01",
+      "fechaSalida": "2024-11-07",
+      "habitacion": "Individual",
+      "estado": "No pagado",
+      "numeroHuespedes": 1
     },
     {
-      "Id": 8,
-      "Hotel": "Hotel Paradise",
-      "Fecha de entrada": "2024-11-08",
-      "Fecha de salida": "2024-11-13",
-      "Tipo de Habitación": "Doble",
-      "Estado": "Pagado",
-      "Cantidad de Huéspedes": 2
+      "id": 8,
+      "hotel": "Hotel Paradise",
+      "fechaEntrada": "2024-11-08",
+      "fechaSalida": "2024-11-13",
+      "habitacion": "Doble",
+      "estado": "Pagado",
+      "numeroHuespedes": 2
     },
     {
-      "Id": 9,
-      "Hotel": "Mountain Retreat",
-      "Fecha de entrada": "2024-11-20",
-      "Fecha de salida": "2024-11-25",
-      "Tipo de Habitación": "Suite",
-      "Estado": "No pagado",
-      "Cantidad de Huéspedes": 2
+      "id": 9,
+      "hotel": "Mountain Retreat",
+      "fechaEntrada": "2024-11-20",
+      "fechaSalida": "2024-11-25",
+      "habitacion": "Suite",
+      "estado": "No pagado",
+      "numeroHuespedes": 2
     },
     {
-      "Id": 10,
-      "Hotel": "Ocean Breeze",
-      "Fecha de entrada": "2024-11-15",
-      "Fecha de salida": "2024-11-20",
-      "Tipo de Habitación": "Triple",
-      "Estado": "Pagado",
-      "Cantidad de Huéspedes": 3
+      "id": 10,
+      "hotel": "Ocean Breeze",
+      "fechaEntrada": "2024-11-15",
+      "fechaSalida": "2024-11-20",
+      "habitacion": "Triple",
+      "estado": "Pagado",
+      "numeroHuespedes": 3
     }
   ]
 }

@@ -24,13 +24,13 @@ fs.readFile(filePath, 'utf-8', (err, data) => {
 
 
 
-export const listaReservas = (req, res) => {
+export const listaReservas = async (req, res) => {
     res.json(reservas);
 };
 
 
 
-export const crearReserva = (req, res) => {
+export const crearReserva = async (req, res) => {
   const nuevoId = reservas[reservas.length - 1].id + 1;
   const nuevaReserva = {
     "id": nuevoId,
@@ -47,7 +47,7 @@ export const crearReserva = (req, res) => {
 
 
 
-export const filtrarPorId = (req, res) => {
+export const filtrarPorId = async (req, res) => {
   const id = parseInt(req.params.id);
   const reserva = reservas.find((idReserva) => idReserva.id === id);
 
@@ -60,7 +60,7 @@ export const filtrarPorId = (req, res) => {
 
 
 
-export const actualizarPorId = (req, res) => {
+export const actualizarPorId = async (req, res) => {
   const id = parseInt(req.params.id);
   const reservaActualizada = {
     "id": id,
@@ -82,7 +82,7 @@ export const actualizarPorId = (req, res) => {
 
 
 
-export const eliminarReserva = (req, res) => {
+export const eliminarReserva = async (req, res) => {
   const id = parseInt(req.params.id);
   for (let i = 0 ; i < reservas.length ; i++){
     if (reservas[i].id === id){
@@ -95,7 +95,7 @@ export const eliminarReserva = (req, res) => {
 
 
 
-export const filtrarPorHotel = (req, res) => {
+export const filtrarPorHotel = async (req, res) => {
   const hotel = req.query.hotel.toLowerCase();
   const reserva = reservas.filter((reservaHotel) => reservaHotel.hotel.toLowerCase() === hotel);
   if (reserva.length > 0) {
@@ -107,7 +107,7 @@ export const filtrarPorHotel = (req, res) => {
 
 
 
-export const filtrarPorRangoFechas = (req, res) => {
+export const filtrarPorRangoFechas = async (req, res) => {
   const{fechaEntrada, fechaSalida} = req.query
   const fechaInicioFormateada = new Date(fechaEntrada);
   const fechaTerminoFormateada = new Date(fechaSalida);
@@ -121,7 +121,7 @@ export const filtrarPorRangoFechas = (req, res) => {
 }
 
 
-export const filtrarPorHabitacion = (req, res) => {
+export const filtrarPorHabitacion = async (req, res) => {
   const habitacion = req.query.habitacion.toLowerCase();
   const reserva = reservas.filter((habitacionReserva) => habitacionReserva.habitacion.toLowerCase() === habitacion);
   if (reserva.length > 0) {
@@ -131,7 +131,7 @@ export const filtrarPorHabitacion = (req, res) => {
   }
 }
 
-export const filtrarPorEstado = (req, res) => {
+export const filtrarPorEstado = async (req, res) => {
   const estado = req.query.estado.toLowerCase();
   const reserva = reservas.filter((estadoReserva) => estadoReserva.estado.toLowerCase() === estado);
   if (reserva.length > 0) {
@@ -141,7 +141,7 @@ export const filtrarPorEstado = (req, res) => {
   }
 }
 
-export const filtrarPorCantidadPasajeros = (req, res) => {
+export const filtrarPorCantidadPasajeros = async (req, res) => {
   const numHuespedes = req.query.num;
   const reserva = reservas.filter((numH) => numH.numeroHuespedes >= numHuespedes);
   if (reserva.length > 0) {

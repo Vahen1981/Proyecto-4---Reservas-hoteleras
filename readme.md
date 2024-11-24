@@ -16,18 +16,34 @@ Este método permite obtener un listado completo de todas las reservas almacenad
 ## Crear una nueva reserva:
 **Método**: POST  
 **Ruta**: `https://proyecto-4-reservas-hoteleras-tik8.onrender.com/api/reservas`  
-Este método permite crear una nueva reserva en el sistema. Para ello, se debe incluir un "Body" en formato JSON, que contenga la siguiente información:
+Este método permite crear una nueva reserva en el sistema. Para ello, se debe incluir un "Body" en formato JSON, que contenga los siguientes campos:
 ```json
 {
-  "hotel": "Hotel Example",
-  "fechaEntrada": "2024-11-08",
-  "fechaSalida": "2024-11-13",
+  "nombre": "",
+  "email": "",
+  "hotel": "",
+  "entrada": "",
+  "salida": "",
+  "habitacion": "",
+  "estado": "",
+  "numeroHuespedes": ""
+}
+```
+
+Ejemplo con los campos rellenos:
+```json
+{
+  "nombre": "Héctor Lavoe",
+  "email": "lavoe@allstars.cl",
+  "hotel": "Crazy Legs",
+  "entrada": "2024-12-01",
+  "salida": "2024-12-07",
   "habitacion": "Suite",
-  "estado": "Confirmada",
+  "estado": "No pagada",
   "numeroHuespedes": 2
 }
 ```
-Cada campo del JSON debe ser completado con los datos correspondientes a la reserva, tales como el nombre del hotel, las fechas de entrada y salida, el tipo de habitación, el estado de la reserva y el número de huéspedes.
+Cada campo del JSON debe ser completado con los datos correspondientes a la reserva, tales como el nombre del pasajero, su e-mail, el nombre del hotel, las fechas de entrada y salida, el tipo de habitación, el estado de la reserva y el número de huéspedes.
 
 
 ## Filtrar una reserva por su ID

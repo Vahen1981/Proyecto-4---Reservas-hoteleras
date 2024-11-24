@@ -5,13 +5,16 @@
 // import data from '../data.json' assert { type: "json" };
 // const reservas = data.reservas;
 
-
 // Para no tener que cambiar el "type" del package.json y, a la vez,
-// continuar utilizando un archivo .json aparte con los datos de las reservas
+// continuar utilizando un archivo .json con los datos de las reservas
 // he utilizado el método de importación utilizando fs y path
 import fs from 'fs';
 import path from 'path';
+
+// Importar la clase reserva para crear nuevos objetos de reservas
 import Reserva from '../models/models.js';
+
+//Lógica para importar el archivo data.json y guardarlos en la variable reservas
 const filePath = path.resolve('./data.json');
 let reservas;
 fs.readFile(filePath, 'utf-8', (err, data) => {
@@ -19,7 +22,6 @@ fs.readFile(filePath, 'utf-8', (err, data) => {
     console.error('Error al leer el archivo JSON:', err);
     return;
   }
-  
   reservas = JSON.parse(data).reservas;
 });
 
@@ -55,12 +57,12 @@ export const crearReserva = async (req, res) => {
 
       res.status(201).json({ mensaje: 'Reserva creada', data: nuevaReserva });
   } 
-  
   catch (error) {
       console.error(error);
       res.status(500).json({ mensaje: 'Error al crear la reserva' });
   }
 };
+
 
 
 export const filtrarPorId = async (req, res) => {
@@ -87,7 +89,6 @@ export const actualizarPorId = async (req, res) => {
   }
   res.status(404).json({ mensaje: 'Reserva no encontrada' }); 
 }
-
 
 
 
@@ -130,6 +131,7 @@ export const filtrarPorRangoFechas = async (req, res) => {
 }
 
 
+
 export const filtrarPorHabitacion = async (req, res) => {
   const habitacion = req.query.habitacion.toLowerCase();
   const reserva = reservas.filter((habitacionReserva) => habitacionReserva.habitacion.toLowerCase() === habitacion);
@@ -140,6 +142,8 @@ export const filtrarPorHabitacion = async (req, res) => {
   }
 }
 
+
+
 export const filtrarPorEstado = async (req, res) => {
   const estado = req.query.estado.toLowerCase();
   const reserva = reservas.filter((estadoReserva) => estadoReserva.estado.toLowerCase() === estado);
@@ -149,6 +153,8 @@ export const filtrarPorEstado = async (req, res) => {
     res.status(404).json({ mensaje: 'No se encontraron reservas en este estado' }); 
   }
 }
+
+
 
 export const filtrarPorCantidadPasajeros = async (req, res) => {
   const numHuespedes = req.query.num;

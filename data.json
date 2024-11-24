@@ -1,7 +1,9 @@
 {
-    "reservas": [
+  "reservas": [
     {
       "id": 1,
+      "nombre": "Freddie Mercury",
+      "email": "freddie@queenmail.com",
       "hotel": "Hotel Paradise",
       "fechaEntrada": "2024-11-01",
       "fechaSalida": "2024-11-07",
@@ -11,6 +13,8 @@
     },
     {
       "id": 2,
+      "nombre": "David Bowie",
+      "email": "david@ziggyrock.com",
       "hotel": "Ocean Breeze",
       "fechaEntrada": "2024-11-05",
       "fechaSalida": "2024-11-10",
@@ -20,6 +24,8 @@
     },
     {
       "id": 3,
+      "nombre": "Kurt Cobain",
+      "email": "kurt@nirvanamail.com",
       "hotel": "Mountain Retreat",
       "fechaEntrada": "2024-11-03",
       "fechaSalida": "2024-11-06",
@@ -29,6 +35,8 @@
     },
     {
       "id": 4,
+      "nombre": "Stevie Nicks",
+      "email": "stevie@fleetwoodmail.com",
       "hotel": "Hotel Paradise",
       "fechaEntrada": "2024-11-10",
       "fechaSalida": "2024-11-15",
@@ -38,6 +46,8 @@
     },
     {
       "id": 5,
+      "nombre": "Eddie Vedder",
+      "email": "eddie@pearlmail.com",
       "hotel": "Ocean Breeze",
       "fechaEntrada": "2024-11-12",
       "fechaSalida": "2024-11-18",
@@ -47,6 +57,8 @@
     },
     {
       "id": 6,
+      "nombre": "Janis Joplin",
+      "email": "janis@soulrock.com",
       "hotel": "Mountain Retreat",
       "fechaEntrada": "2024-11-15",
       "fechaSalida": "2024-11-20",
@@ -56,6 +68,8 @@
     },
     {
       "id": 7,
+      "nombre": "Axl Rose",
+      "email": "axl@gunsmail.com",
       "hotel": "Ocean Breeze",
       "fechaEntrada": "2024-11-01",
       "fechaSalida": "2024-11-07",
@@ -65,6 +79,8 @@
     },
     {
       "id": 8,
+      "nombre": "Stevie Ray Vaughan",
+      "email": "srv@bluesrock.com",
       "hotel": "Hotel Paradise",
       "fechaEntrada": "2024-11-08",
       "fechaSalida": "2024-11-13",
@@ -74,6 +90,8 @@
     },
     {
       "id": 9,
+      "nombre": "Joan Jett",
+      "email": "joan@runawaysmail.com",
       "hotel": "Mountain Retreat",
       "fechaEntrada": "2024-11-20",
       "fechaSalida": "2024-11-25",
@@ -83,6 +101,8 @@
     },
     {
       "id": 10,
+      "nombre": "Robert Plant",
+      "email": "robert@zeppelinmail.com",
       "hotel": "Ocean Breeze",
       "fechaEntrada": "2024-11-15",
       "fechaSalida": "2024-11-20",

@@ -35,9 +35,9 @@ export const listaReservas = async (req, res) => {
 
 export const crearReserva = async (req, res) => {
   try {
-      const { hotel, entrada, salida, habitacion, estado, numeroHuespedes } = req.body;
+      const { nombre, email, hotel, entrada, salida, habitacion, estado, numeroHuespedes } = req.body;
 
-      if (!hotel || !entrada || !salida || !habitacion || !estado || !numeroHuespedes) {
+      if (!nombre || !email || !hotel || !entrada || !salida || !habitacion || !estado || !numeroHuespedes) {
           return res.status(400).json({ mensaje: 'Todos los campos son obligatorios.' });
       }
 
@@ -45,6 +45,8 @@ export const crearReserva = async (req, res) => {
 
       const nuevaReserva = new Reserva(
           nuevoId,
+          nombre,
+          email,
           hotel,
           entrada,
           salida,

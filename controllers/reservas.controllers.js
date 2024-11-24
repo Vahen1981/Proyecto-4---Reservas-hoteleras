@@ -63,7 +63,6 @@ export const crearReserva = async (req, res) => {
 };
 
 
-
 export const filtrarPorId = async (req, res) => {
   const id = parseInt(req.params.id);
   const reserva = reservas.find((idReserva) => idReserva.id === id);
@@ -155,7 +154,7 @@ export const filtrarPorCantidadPasajeros = async (req, res) => {
   const numHuespedes = req.query.num;
   const reserva = reservas.filter((numH) => numH.numeroHuespedes >= numHuespedes);
   if (reserva.length > 0) {
-    res.json(reserva); 
+    res.json({mensaje: `Se encontraron las siguientes reservas para ${numHuespedes} o más personas`, data: reserva});
   } else {
     res.status(404).json({ mensaje: `No se encontraron reservas para ${numHuespedes} o más personas` }); 
   }

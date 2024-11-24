@@ -20,8 +20,8 @@ Este método permite crear una nueva reserva en el sistema. Para ello, se debe i
 ```json
 {
   "hotel": "Hotel Example",
-  "entrada": "2024-12-01",
-  "salida": "2024-12-07",
+  "fechaEntrada": "2024-11-08",
+  "fechaSalida": "2024-11-13",
   "habitacion": "Suite",
   "estado": "Confirmada",
   "numeroHuespedes": 2
@@ -43,18 +43,19 @@ Este método permite obtener los detalles de una reserva específica mediante su
 **Ruta**: `https://proyecto-4-reservas-hoteleras-tik8.onrender.com/api/reservas/id/`  
 Este método permite actualizar la información de una reserva existente utilizando su ID. Se debe agregar el número de ID al final de la ruta. Por ejemplo, para actualizar la reserva con ID 5, la ruta sería:
 `https://proyecto-4-reservas-hoteleras-tik8.onrender.com/api/reservas/id/5`  
-En el "Body" de la solicitud, se debe incluir un JSON con los nuevos datos de la reserva. Un ejemplo de solicitud para actualizar una reserva sería:
+En el "Body" de la solicitud, se debe incluir un JSON con los nuevos datos de la reserva. Por ejemplo si se quieren actualizar las fechas se debería entregar este formato:
 ```json
 {
-  "hotel": "Nuevo hotel",
-  "entrada": "2024-11-12",
-  "salida": "2024-11-18",
-  "habitacion": "Triple",
-  "estado": "Pagado",
-  "numeroHuespedes": 3
+  "fechaEntrada": "2024-11-12",
+  "fechaSalida": "2024-11-18"
 }
 ```
-
+o si se quiere actualizar solamente el estado podría ser esto:
+```json
+{
+  "estado": "No pagado"
+}
+```
 
 ## Eliminar una reserva
 **Método**: DELETE  

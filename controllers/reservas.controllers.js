@@ -11,6 +11,7 @@
 // he utilizado el método de importación utilizando fs y path
 import fs from 'fs';
 import path from 'path';
+import Reserva from '../models/models.js';
 const filePath = path.resolve('./data.json');
 let reservas;
 fs.readFile(filePath, 'utf-8', (err, data) => {
@@ -31,18 +32,34 @@ export const listaReservas = async (req, res) => {
 
 
 export const crearReserva = async (req, res) => {
-  const nuevoId = reservas[reservas.length - 1].id + 1;
-  const nuevaReserva = {
-    "id": nuevoId,
-    "hotel": req.body.hotel,
-    "fechaEntrada": req.body.entrada,
-    "fechaSalida": req.body.salida,
-    "habitacion": req.body.habitacion,
-    "estado": req.body.estado,
-    "numeroHuespedes": req.body.numeroHuespedes,
-  };
-  reservas.push(nuevaReserva);
-  res.status(201).json({ mensaje: 'Reserva creada', data: nuevaReserva });
+  try {
+      const { hotel, entrada, salida, habitacion, estado, numeroHuespedes } = req.body;
+
+      if (!hotel || !entrada || !salida || !habitacion || !estado || !numeroHuespedes) {
+          return res.status(400).json({ mensaje: 'Todos los campos son obligatorios.' });
+      }
+
+      const nuevoId = reservas.length > 0 ? reservas[reservas.length - 1].id + 1 : 1;
+
+      const nuevaReserva = new Reserva(
+          nuevoId,
+          hotel,
+          entrada,
+          salida,
+          habitacion,
+          estado,
+          numeroHuespedes
+      );
+
+      reservas.push(nuevaReserva);
+
+      res.status(201).json({ mensaje: 'Reserva creada', data: nuevaReserva });
+  } 
+  
+  catch (error) {
+      console.error(error);
+      res.status(500).json({ mensaje: 'Error al crear la reserva' });
+  }
 };
 
 
@@ -62,23 +79,16 @@ export const filtrarPorId = async (req, res) => {
 
 export const actualizarPorId = async (req, res) => {
   const id = parseInt(req.params.id);
-  const reservaActualizada = {
-    "id": id,
-    "hotel": req.body.hotel,
-    "fechaEntrada": req.body.entrada,
-    "fechaSalida": req.body.salida,
-    "habitacion": req.body.habitacion,
-    "estado": req.body.estado,
-    "numeroHuespedes": req.body.numeroHuespedes,
-  };
+
   for (let i = 0 ; i < reservas.length ; i++){
     if (reservas[i].id === id){
-      reservas[i] = reservaActualizada;
-      return res.status(200).json({ mensaje: 'Reserva actualizada', data: reservaActualizada });
+      reservas[i] = { ...reservas[i], ...req.body} 
+      return res.status(200).json({ mensaje: 'Reserva actualizada', data: reservas[i] });
     }
   }
   res.status(404).json({ mensaje: 'Reserva no encontrada' }); 
 }
+
 
 
 
